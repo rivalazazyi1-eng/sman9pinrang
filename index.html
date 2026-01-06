@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMAN 9 PINRANG - Berakhlak & Berprestasi</title>
+    <style>
+        /* --- GAYA DASAR --- */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #333;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        /* --- NAVIGASI --- */
+        header {
+            background-color: #004a99;
+            color: white;
+            padding: 0.8rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        #jam-digital {
+            font-size: 1.3rem;
+            margin: 0;
+            font-family: 'Courier New', Courier, monospace;
+            background: #003366;
+            padding: 5px 12px;
+            border-radius: 8px;
+            border: 1px solid #ffcc00;
+            min-width: 100px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li { margin-left: 20px; }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover { color: #ffcc00; }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            border-radius: 2px;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('foto-sekolah.jpg'); 
+            background-size: cover;
+            background-position: center;
+            height: 45vh; 
+            min-height: 300px;
+            max-height: 450px; 
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h2 { 
+            font-size: clamp(1.8rem, 5vw, 3rem); 
+            margin-bottom: 10px; 
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        /* --- RUNNING TEXT --- */
+        .running-text-container {
+            width: 100%;
+            overflow: hidden;
+            background: #0044cc;
+            color: white;
+            padding: 10px 0;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .running-text {
+            display: inline-block;
+            animation: jalan-terus 20s linear infinite;
+            font-size: 18px;
+        }
+
+        @keyframes jalan-terus {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* --- KONTEN --- */
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+            padding: 40px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            color: #004a99;
+            border-bottom: 3px solid #ffcc00;
+            display: inline-block;
+            margin-bottom: 30px;
+            padding-bottom: 5px;
+        }
+
+        .card-container { display: flex; gap: 20px; }
+
+        .card {
+            flex: 1;
+            padding: 25px;
+            background: #f9f9f9;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        /* --- MEDIA SOSIAL FOOTER --- */
+        .social-icons { display: flex; gap: 15px; }
+
+        .social-btn { 
+            width: 40px; 
+            height: 40px; 
+            border-radius: 50%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            transition: 0.3s;
+            overflow: hidden;
+            background: white; /* Dasar putih agar logo terlihat jelas */
+        }
+
+        .social-btn img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .social-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(255, 204, 0, 0.3);
+        }
+
+        /* --- GALERI --- */
+        .slider-container {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            margin: 20px auto;
+            overflow: hidden;
+            border-radius: 12px;
+            background-color: #eee;
+        }
+
+        .slides { display: flex; transition: transform 0.5s ease-in-out; }
+        .slide { min-width: 100%; }
+        .slide img { width: 100%; height: 400px; object-fit: cover; }
+        .caption { background: rgba(0, 0, 0, 0.7); color: white; padding: 15px; text-align: center; }
+
+        /* --- FOOTER --- */
+        .main-footer { background-color: #11101d; color: white; padding: 40px 0 0 0; margin-top: 50px; }
+        .footer-content { width: 90%; margin: 0 auto; padding-bottom: 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+        .school-branding { display: flex; align-items: center; gap: 15px; }
+        .school-logo { width: 60px; height: auto; }
+        .footer-bottom { background-color: #0a0910; padding: 20px; text-align: center; font-size: 13px; color: #aaa; border-top: 1px solid #333; }
+
+        @media (max-width: 768px) {
+            .menu-toggle { display: flex; }
+            nav { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: #004a99; padding: 20px 0; }
+            nav.active { display: block; }
+            nav ul { flex-direction: column; align-items: center; }
+            nav ul li { margin: 15px 0; }
+            .card-container { flex-direction: column; }
+            .footer-content { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo"><div id="jam-digital">00:00:00</div></div>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
+        </div>
+        <nav id="nav-menu">
+            <ul>
+                <li><a href="#">Beranda</a></li>
+                <li><a href="#profil">Profil</a></li>
+                <li><a href="#visimisi">Visi & Misi</a></li>
+                <li><a href="#tujuan">Tujuan</a></li>
+                <li><a href="#galeri">Galeri</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>SMAN 9 PINRANG</h2>
+        <p>Mencetak Generasi Cerdas, Mandiri, Berakhlak Mulia</p>
+    </section>
+
+    <div class="running-text-container">
+        <div class="running-text">Selamat datang di Website Resmi SMAN 9 PINRANG — Mencetak Generasi Cerdas, Mandiri, Berakhlak Mulia.</div>
+    </div>
+
+    <div class="container" id="visimisi">
+        <div style="text-align: center;"><h2 class="section-title">Visi & Misi</h2></div>
+        <div class="card-container">
+            <div class="card">
+                <h3>Visi</h3>
+                <p>"Terwujudnya warga sekolah yang Berakhlak mulia, Cerdas, Mandiri, Peduli lingkungan, dan Memiliki Keterampilan Abad 21"</p>
+            </div>
+            <div class="card">
+                <h3>Misi</h3>
+                <ul style="text-align: left; padding-left: 20px;">
+                    <li>Mewujudkan warga sekolah yang beriman dan bertaqwa kepada Tuhan YME.</li>
+                    <li>Mewujudkan sekolah berbudaya 5S (Salam, Senyum, Sapa, Sopan, Santun).</li>
+                    <li>Mewujudkan warga sekolah yang unggul dan berprestasi.</li>
+                    <li>Meningkatkan infrastruktur dan budaya teknologi.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="tujuan" style="padding-top: 0;">
+        <div style="text-align: center;"><h2 class="section-title">Tujuan</h2></div>
+        <div class="card" style="background: #eef5ff; border-left: 5px solid #004a99;">
+            <ul style="text-align: left; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 10px; padding-left: 20px;">
+                <li>Terwujudnya warga sekolah yang tekun dan taat beribadah.</li>
+                <li>Meningkatkan kesadaran Anti Bullying.</li>
+                <li>Terlaksananya program Jumat Bersih dan PUSELBASAH.</li>
+                <li>Pemanfaatan Papan Interaktif Digital dalam proses pembelajaran.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container" id="galeri">
+        <div style="text-align: center;"><h2 class="section-title">Galeri Sekolah</h2></div>
+      <div class="slider-container">
+            <div class="slides" id="slide-wrapper">
+                <div class="slide">
+                    <img src="gedung Utama.jpg" alt="Gedung">
+                    <div class="caption">Gedung Utama Sekolah</div>
+                </div>
+                <div class="slide">
+                    <img src="ruangkelas.jpg" alt="Kelas">
+                    <div class="caption">Ruang Kelas 
+                   </div>
+                </div>
+                <div class="slide">
+                    <img src="Upacara.jpg" alt="Upacara">
+                    <div class="caption">Kegiatan Upacara Bendera</div>
+                </div>
+                <div class="slide">
+                    <img src="lapangan.jpg" alt="Olahraga">
+                    <div class="caption">Fasilitas Lapangan Olahraga</div>
+                </div>
+                <div class="slide">
+                    <img src="Laboratorium komputer.jpg" alt="Lab">
+                    <div class="caption">Laboratorium komputer</div>
+                </div>
+            </div>
+            <button onclick="moveSlide(-1)" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; border: none; padding: 10px; cursor: pointer;">&#10094;</button>
+            <button onclick="moveSlide(1)" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; border: none; padding: 10px; cursor: pointer;">&#10095;</button>
+        </div>
+    </div>
+
+    <footer class="main-footer" id="kontak">
+        <div class="footer-content">
+            <div class="school-branding">
+                <img src="logo-sekolah.png" alt="Logo" class="school-logo">
+                <div>
+                    <h2 style="margin:0; font-size: 1.2rem;">SMAN 9 PINRANG</h2>
+                    <p style="font-size: 0.8rem;">Mencetak Generasi Cerdas, Mandiri, Berakhlak Mulia</p>
+                </div>
+            </div>
+            <div class="social-icons">
+                <a href="https://facebook.com/..." class="social-btn"><img src="Logo-fb.jpg" alt="Facebook"></a>
+                <a href="https://instagram.com/..." class="social-btn"><img src="Logo-ig.jpg" alt="Instagram"></a>
+                <a href="https://youtube.com/..." class="social-btn"><img src="Logo-yt.jpg" alt="YouTube"></a>
+                <a href="https://x.com/sman9pinrang" class="social-btn"><img src="Logo-x.jpg" alt="X"></a>
+                <a href="#" class="social-btn"><img src="Logo-tiktok.jpg" alt="TikTok"></a>
+            </div>
+                <a href="mailto:smanselpinrangkab@gmail.com" class="email-link">📩 smanselpinrangkab@gmail.com</a>
+            </div>
+        </div>
+        <div class="footer-bottom">&copy; 2026 Tim ICT SMAN 9 PINRANG.</div>
+    </footer>
+
+    <script>
+        function updateJam() {
+            const sekarang = new Date();
+            let jam = sekarang.getHours(), menit = sekarang.getMinutes(), detik = sekarang.getSeconds();
+            document.getElementById('jam-digital').textContent = 
+                `${jam.toString().padStart(2,'0')}:${menit.toString().padStart(2,'0')}:${detik.toString().padStart(2,'0')}`;
+        }
+        setInterval(updateJam, 1000);
+        updateJam();
+
+        function toggleMenu() { document.getElementById('nav-menu').classList.toggle('active'); }
+
+        let currentIndex = 0;
+        function moveSlide(direction) {
+            const wrapper = document.getElementById('slide-wrapper');
+            const slides = document.querySelectorAll('.slide');
+            currentIndex = (currentIndex + direction + slides.length) % slides.length;
+            wrapper.style.transform = `translateX(${-currentIndex * 100}%)`;
+        }
+    </script>
+</body>
+</html>
