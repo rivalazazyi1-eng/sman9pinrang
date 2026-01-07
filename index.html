@@ -148,6 +148,27 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
 
+        /* --- MAP SECTION --- */
+        .map-wrapper {
+            margin-top: 20px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            border: 5px solid white;
+            transition: transform 0.3s ease;
+        }
+
+        .map-wrapper:hover {
+            transform: scale(1.01);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 400px;
+            border: 0;
+            display: block;
+        }
+
         /* --- MEDIA SOSIAL FOOTER --- */
         .social-icons { display: flex; gap: 15px; }
 
@@ -160,7 +181,7 @@
             justify-content: center; 
             transition: 0.3s;
             overflow: hidden;
-            background: white; /* Dasar putih agar logo terlihat jelas */
+            background: white; 
         }
 
         .social-btn img {
@@ -196,6 +217,7 @@
         .school-branding { display: flex; align-items: center; gap: 15px; }
         .school-logo { width: 60px; height: auto; }
         .footer-bottom { background-color: #0a0910; padding: 20px; text-align: center; font-size: 13px; color: #aaa; border-top: 1px solid #333; }
+        .email-link { color: #ffcc00; text-decoration: none; font-weight: bold; }
 
         @media (max-width: 768px) {
             .menu-toggle { display: flex; }
@@ -205,6 +227,7 @@
             nav ul li { margin: 15px 0; }
             .card-container { flex-direction: column; }
             .footer-content { flex-direction: column; text-align: center; }
+            .map-container iframe { height: 300px; }
         }
     </style>
 </head>
@@ -220,9 +243,8 @@
                 <li><a href="#">Beranda</a></li>
                 <li><a href="#profil">Profil</a></li>
                 <li><a href="#visimisi">Visi & Misi</a></li>
-                <li><a href="#tujuan">Tujuan</a></li>
                 <li><a href="#galeri">Galeri</a></li>
-                <li><a href="#kontak">Kontak</a></li>
+                <li><a href="#lokasi">Lokasi</a></li>
             </ul>
         </nav>
     </header>
@@ -247,29 +269,24 @@
                 <h3>Misi</h3>
                 <ul style="text-align: left; padding-left: 20px;">
                     <li>Mewujudkan warga sekolah yang beriman dan bertaqwa kepada Tuhan YME.</li>
+                    <li>Mewujudkan sekolah yang sehat, aman, dan nyaman.</li>
                     <li>Mewujudkan sekolah berbudaya 5S (Salam, Senyum, Sapa, Sopan, Santun).</li>
                     <li>Mewujudkan warga sekolah yang unggul dan berprestasi.</li>
-                    <li>Meningkatkan infrastruktur dan budaya teknologi.</li>
+                    <li>Mewujudkan warga sekolah yang memiliki kemampuan literasi dan numerasi.</li>
+                    <li>Mewujudkan warga sekolah yang percaya diri, tangguh, dan adaptif.</li>
+                    <li>Mewujudkan warga sekolah disiplin, tertib, dan bertanggung jawab.</li>
+                    <li>Mewujudkan sekolah yang bersih, sehat, asri, dan berseri.</li>
+                    <li>Mewujudkan warga sekolah yang memiliki karakter menjaga, merawat, dan melestarikan lingkungan.</li>
+                    <li>Menumbuhkan warga sekolah yang kreatif, inovatif, kritis, analitis, dan logis.</li>
+                    <li>Mengembangkan pembelajaran berbasis teknologi informasi dan komunikasi (TIK).</li>
                 </ul>
             </div>
         </div>
     </div>
 
-    <div class="container" id="tujuan" style="padding-top: 0;">
-        <div style="text-align: center;"><h2 class="section-title">Tujuan</h2></div>
-        <div class="card" style="background: #eef5ff; border-left: 5px solid #004a99;">
-            <ul style="text-align: left; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 10px; padding-left: 20px;">
-                <li>Terwujudnya warga sekolah yang tekun dan taat beribadah.</li>
-                <li>Meningkatkan kesadaran Anti Bullying.</li>
-                <li>Terlaksananya program Jumat Bersih dan PUSELBASAH.</li>
-                <li>Pemanfaatan Papan Interaktif Digital dalam proses pembelajaran.</li>
-            </ul>
-        </div>
-    </div>
-
     <div class="container" id="galeri">
         <div style="text-align: center;"><h2 class="section-title">Galeri Sekolah</h2></div>
-      <div class="slider-container">
+        <div class="slider-container">
             <div class="slides" id="slide-wrapper">
                 <div class="slide">
                     <img src="gedung Utama.jpg" alt="Gedung">
@@ -277,8 +294,7 @@
                 </div>
                 <div class="slide">
                     <img src="ruangkelas.jpg" alt="Kelas">
-                    <div class="caption">Ruang Kelas 
-                   </div>
+                    <div class="caption">Ruang Kelas</div>
                 </div>
                 <div class="slide">
                     <img src="Upacara.jpg" alt="Upacara">
@@ -290,11 +306,25 @@
                 </div>
                 <div class="slide">
                     <img src="Laboratorium komputer.jpg" alt="Lab">
-                    <div class="caption">Laboratorium komputer</div>
+                    <div class="caption">Laboratorium Komputer</div>
                 </div>
             </div>
-            <button onclick="moveSlide(-1)" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; border: none; padding: 10px; cursor: pointer;">&#10094;</button>
-            <button onclick="moveSlide(1)" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; border: none; padding: 10px; cursor: pointer;">&#10095;</button>
+            <button onclick="moveSlide(-1)" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; border: none; padding: 10px; cursor: pointer; border-radius: 50%;">❮</button>
+            <button onclick="moveSlide(1)" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; border: none; padding: 10px; cursor: pointer; border-radius: 50%;">❯</button>
+        </div>
+    </div>
+
+    <div class="container" id="lokasi">
+        <div style="text-align: center;"><h2 class="section-title">Lokasi Sekolah</h2></div>
+        <div class="map-wrapper">
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15918.472852655325!2d119.6455!3d-3.9211!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2d95006d99999999%3A0x1234567890abcdef!2sPinrang%2C%20South%20Sulawesi!5e0!3m2!1sen!2sid!4v1700000000000!5m2!1sen!2sid" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
         </div>
     </div>
 
@@ -308,19 +338,19 @@
                 </div>
             </div>
             <div class="social-icons">
-                <a href="https://facebook.com/..." class="social-btn"><img src="Logo-fb.jpg" alt="Facebook"></a>
-                <a href="https://instagram.com/..." class="social-btn"><img src="Logo-ig.jpg" alt="Instagram"></a>
-                <a href="https://youtube.com/..." class="social-btn"><img src="Logo-yt.jpg" alt="YouTube"></a>
-                <a href="https://x.com/sman9pinrang" class="social-btn"><img src="Logo-x.jpg" alt="X"></a>
+                <a href="#" class="social-btn"><img src="Logo-fb.jpg" alt="Facebook"></a>
+                <a href="#" class="social-btn"><img src="Logo-ig.jpg" alt="Instagram"></a>
+                <a href="#" class="social-btn"><img src="Logo-yt.jpg" alt="YouTube"></a>
+                <a href="#" class="social-btn"><img src="Logo-x.jpg" alt="X"></a>
                 <a href="#" class="social-btn"><img src="Logo-tiktok.jpg" alt="TikTok"></a>
             </div>
-                <a href="mailto:smanselpinrangkab@gmail.com" class="email-link">📩 smanselpinrangkab@gmail.com</a>
-            </div>
+            <a href="mailto:smanselpinrangkab@gmail.com" class="email-link">smanselpinrangkab@gmail.com</a>
         </div>
-        <div class="footer-bottom">&copy; 2026 Tim ICT SMAN 9 PINRANG.</div>
+        <div class="footer-bottom">© 2026 Tim ICT SMAN 9 PINRANG.</div>
     </footer>
 
     <script>
+        // Update Jam Digital
         function updateJam() {
             const sekarang = new Date();
             let jam = sekarang.getHours(), menit = sekarang.getMinutes(), detik = sekarang.getSeconds();
@@ -330,8 +360,10 @@
         setInterval(updateJam, 1000);
         updateJam();
 
+        // Mobile Menu
         function toggleMenu() { document.getElementById('nav-menu').classList.toggle('active'); }
 
+        // Slider Galeri
         let currentIndex = 0;
         function moveSlide(direction) {
             const wrapper = document.getElementById('slide-wrapper');
